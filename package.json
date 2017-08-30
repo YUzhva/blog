@@ -32,6 +32,7 @@
     "eslint-plugin-import": "2.7.0",
     "eslint-plugin-jsx-a11y": "5.1.1",
     "eslint-plugin-react": "7.3.0",
+    "gh-pages": "^1.0.0",
     "lint-staged": "^4.0.4",
     "npm-run-all": "^4.0.2",
     "pre-commit": "^1.2.2",
@@ -48,6 +49,8 @@
     "eject": "react-scripts eject",
     "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "lint": "npm run lint:js && npm run lint:scss",
     "lint:js": "eslint --ext .js src/",
     "lint:scss": "stylelint 'src/**/*.scss' --syntax scss",
@@ -58,5 +61,6 @@
     "*.js": "lint:js",
     "*.scss": "stylelint"
   },
-  "proxy": "https://httpbin.org"
+  "proxy": "https://httpbin.org",
+  "homepage": "https://yuzhva.github.io/blog"
 }

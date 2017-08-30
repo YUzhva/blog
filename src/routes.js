@@ -10,8 +10,8 @@ import About from './containers/About';
 const routes = (
   <ConnectedRouter history={history}>
     <Switch>
-      <Route exact path="/" component={App} />
-      <Route path="/about" component={About} />
+      <Route exact path={`${process.env.PUBLIC_URL}/`} component={App} />
+      <Route path={`${process.env.PUBLIC_URL}/about`} component={About} />
       {/* NOTE: put other app routes here */}
     </Switch>
   </ConnectedRouter>
