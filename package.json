@@ -49,7 +49,7 @@
     "eject": "react-scripts eject",
     "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
-    "predeploy": "npm run build",
+    "predeploy": "npm run build && cp 404.html build/",
     "deploy": "gh-pages -d build",
     "lint": "npm run lint:js && npm run lint:scss",
     "lint:js": "eslint --ext .js src/",
