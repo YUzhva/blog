@@ -1,0 +1,62 @@
+{
+  "name": "yuzhva-blog",
+  "version": "0.0.1",
+  "description": "Personal blog",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YUzhva/blog.git"
+  },
+  "author": "Yevhen Uzhva",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/YUzhva/blog/issues/issues"
+  },
+  "dependencies": {
+    "history": "^4.7.2",
+    "immutable": "^3.8.1",
+    "node-sass-chokidar": "^0.0.3",
+    "prop-types": "^15.5.10",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-redux": "^5.0.6",
+    "react-router-dom": "^4.2.0",
+    "react-router-redux": "^5.0.0-alpha.6",
+    "redux": "^3.7.2",
+    "redux-saga": "^0.15.6",
+    "semantic-ui-css": "^2.2.12",
+    "semantic-ui-react": "^0.71.5"
+  },
+  "devDependencies": {
+    "eslint": "4.5.0",
+    "eslint-config-airbnb": "15.1.0",
+    "eslint-plugin-import": "2.7.0",
+    "eslint-plugin-jsx-a11y": "5.1.1",
+    "eslint-plugin-react": "7.3.0",
+    "lint-staged": "^4.0.4",
+    "npm-run-all": "^4.0.2",
+    "pre-commit": "^1.2.2",
+    "react-scripts": "1.0.11",
+    "stylelint": "^8.0.0",
+    "stylelint-config-sass-guidelines": "^3.1.0",
+    "stylelint-declaration-use-variable": "^1.6.0"
+  },
+  "scripts": {
+    "start-js": "react-scripts start",
+    "start": "npm-run-all -p watch-css start-js",
+    "build": "npm run build-css && react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "build-css": "node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar --include-path ./src --include-path ./node_modules src/ -o src/ --watch --recursive",
+    "lint": "npm run lint:js && npm run lint:scss",
+    "lint:js": "eslint --ext .js src/",
+    "lint:scss": "stylelint 'src/**/*.scss' --syntax scss",
+    "lint:staged": "lint-staged"
+  },
+  "pre-commit": "lint:staged",
+  "lint-staged": {
+    "*.js": "lint:js",
+    "*.scss": "stylelint"
+  },
+  "proxy": "https://httpbin.org"
+}
